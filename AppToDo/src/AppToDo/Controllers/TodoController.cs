@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AppToDo.Controllers
 {
+    [Authorize]
     public class TodoController : Controller
     {
         private ITodoRepository _repository;
