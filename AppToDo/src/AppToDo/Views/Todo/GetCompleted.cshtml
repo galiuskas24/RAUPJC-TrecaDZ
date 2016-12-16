@@ -1,0 +1,19 @@
+﻿@model List<AppToDo.Models.TodoItem>
+@{ViewData["Title"] = "Completed Todos";}
+<h1 class="text-center">
+    @ViewData["Title"]
+</h1>
+<ul class="text-center list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item">
+            <p class="list-group-item-heading">
+                <strong>@item.Text</strong>
+            </p>
+            <p class="list-group-item-info">
+                <em>Completed: @item.DateCompleted</em>
+                <p> <a asp-controller="Todo" asp-action="Delete" asp-route-id="@item.Id">Delete</a></p>
+            </p>
+        </li>
+    }
+</ul>

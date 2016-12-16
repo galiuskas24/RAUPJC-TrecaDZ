@@ -1,0 +1,21 @@
+﻿@model List<AppToDo.Models.TodoItem>
+@{ViewData["Title"] = "Active Todos";}
+<h1 class="text-center">
+    @ViewData["Title"]
+</h1>
+
+<h3 style="text-align: center">
+    <a asp-action="Add">Add new todo</a>
+    -
+    <a asp-action="GetCompleted">See completed todos</a>
+</h3>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <h3>@item.Text</h3>
+        <p>Date created: @item.DateCreated</p>
+        <a asp-controller="Todo" asp-action="MarkasCompleted" asp-route-id="@item.Id">Mark as completed</a>
+        <hr />
+    }
+}
